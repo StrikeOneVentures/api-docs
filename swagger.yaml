@@ -92,7 +92,7 @@ paths:
           required: true
           description: ID of the site to update.
           schema:
-            type: integer
+            type: string
       requestBody:
         description: The site details to update.
         required: true
@@ -104,9 +104,6 @@ paths:
                 plan:
                   type: string
                   description: The new billing plan for the site.
-                is_published:
-                  type: boolean
-                  description: Whether the site is published.
       responses:
         '200':
           description: The updated site.

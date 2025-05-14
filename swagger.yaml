@@ -30,7 +30,7 @@ paths:
           required: true
           description: ID of the site to retrieve.
           schema:
-            type: integer
+            type: string
       responses:
         '200':
           description: A single site.
@@ -74,7 +74,7 @@ paths:
           required: true
           description: ID of the site to disable.
           schema:
-            type: integer
+            type: string
       responses:
         '200':
           description: The disabled site.

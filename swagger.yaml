@@ -84,7 +84,7 @@ paths:
                     items:
                       $ref: '#/components/schemas/Site'
   /agencies/{agencyId}/sites/{siteId}/disable:
-    post:
+    put:
       summary: Disable a site
       description: Disables a site by ID.
       parameters:

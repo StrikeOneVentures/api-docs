@@ -155,7 +155,8 @@ paths:
             required: true
             description: ID of your Agency.
             schema:
-              type: string        content:
+              type: string        
+        content:
           application/json:
             schema:
               type: object

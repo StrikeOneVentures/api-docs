@@ -7,10 +7,17 @@ servers:
   - url: https://api.articulationsites.com/
     description: Production API endpoint
 paths:
-  /sites:
+  /agencies/{agencyId}/sites:
     get:
       summary: List all sites
       description: Returns a list of all sites for the agency.
+      parameters:
+        - name: agencyId
+          in: path
+          required: true
+          description: ID of your Agency.
+          schema:
+            type: string
       responses:
         '200':
           description: A list of sites.
@@ -20,11 +27,17 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Site'
-  /sites/{siteId}:
+  /agencies/{agencyId}/sites/{siteId}:
     get:
       summary: Get site by ID
       description: Returns a single site by ID.
       parameters:
+        - name: agencyId
+          in: path
+          required: true
+          description: ID of your Agency.
+          schema:
+            type: string
         - name: siteId
           in: path
           required: true
@@ -38,11 +51,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Site'
-  /sites/search:
+  /agencies/{agencyId}/sites/search:
     get:
       summary: Search for a site
       description: Search for a site by domain.
       parameters:
+        - name: agencyId
+          in: path
+          required: true
+          description: ID of your Agency.
+          schema:
+            type: string
         - name: domain
           in: query
           required: true
@@ -64,11 +83,17 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Site'
-  /sites/{siteId}/disable:
+  /agencies/{agencyId}/sites/{siteId}/disable:
     post:
       summary: Disable a site
       description: Disables a site by ID.
       parameters:
+        - name: agencyId
+          in: path
+          required: true
+          description: ID of your Agency.
+          schema:
+            type: string
         - name: siteId
           in: path
           required: true
@@ -82,11 +107,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Site'
-  /sites/{siteId}/update:
+  /agencies/{agencyId}/sites/{siteId}/update:
     patch:
       summary: Update a site
       description: Updates a site's details.
       parameters:
+        - name: agencyId
+          in: path
+          required: true
+          description: ID of your Agency.
+          schema:
+            type: string
         - name: siteId
           in: path
           required: true
@@ -111,14 +142,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Site'
-  /sites/create:
+  /agencies/{agencyId}/sites/create:
     post:
       summary: Create a new site
       description: Creates a new site for the agency.
       requestBody:
         description: The details of the site to create.
         required: true
-        content:
+        parameters:
+          - name: agencyId
+            in: path
+            required: true
+            description: ID of your Agency.
+            schema:
+              type: string        content:
           application/json:
             schema:
               type: object
@@ -139,10 +176,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Site'
-  /plans:
+  /agencies/{agencyId}/plans:
     get:
       summary: View available plans
       description: Returns a list of available plans for the agency.
+      parameters:
+        - name: agencyId
+          in: path
+          required: true
+          description: ID of your Agency.
+          schema:
+            type: string
       responses:
         '200':
           description: A list of available plans.
@@ -191,3 +235,9 @@ components:
         login_url:
           type: string
           description: The login URL for the site.
+    Agency:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the Agency.

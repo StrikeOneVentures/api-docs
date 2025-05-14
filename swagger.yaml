@@ -6,11 +6,6 @@ info:
 servers:
   - url: https://api.articulationsites.com/
     description: Production API endpoint
-components:
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
 paths:
   /agencies/{agencyId}/sites:
     get:
@@ -206,6 +201,10 @@ paths:
                     items:
                       type: string
 components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
   schemas:
     Site:
       type: object

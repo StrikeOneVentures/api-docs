@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Articulation Agency API
-  version: 20250515
+  version: "20250515"
   description: The Articulation Agency API allows Agencies to manage their Client sites via an API.
 servers:
   - url: https://api.articulationsites.com/
@@ -146,16 +146,16 @@ paths:
     post:
       summary: Create a new site
       description: Creates a new site for the agency.
+      parameters:
+        - name: agencyId
+          in: path
+          required: true
+          description: ID of your Agency.
+          schema:
+            type: string
       requestBody:
         description: The details of the site to create.
         required: true
-        parameters:
-          - name: agencyId
-            in: path
-            required: true
-            description: ID of your Agency.
-            schema:
-              type: string        
         content:
           application/json:
             schema:

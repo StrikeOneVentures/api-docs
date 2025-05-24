@@ -200,6 +200,31 @@ paths:
                     type: array
                     items:
                       type: string
+  /agencies/{agencyId}/sites/{siteId}/send-login-link:
+    post:
+      summary: Send a login link
+      description: Sends a login link to the site's email address.
+      parameters:
+        - name: agencyId
+          in: path
+          required: true
+          description: ID of your Agency.
+          schema:
+            type: string
+        - name: siteId
+          in: path
+          required: true
+          description: ID of the site.
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Login link sent successfully. Returns an empty array.
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
 components:
   securitySchemes:
     bearerAuth:

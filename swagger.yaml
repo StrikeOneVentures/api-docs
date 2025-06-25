@@ -107,6 +107,30 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Site'
+  /agencies/{agencyId}/sites/{siteId}/enable:
+    put:
+      summary: Enables a site
+      description: Enables a site by ID.
+      parameters:
+        - name: agencyId
+          in: path
+          required: true
+          description: ID of your Agency.
+          schema:
+            type: string
+        - name: siteId
+          in: path
+          required: true
+          description: ID of the site to enable.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The enabled site.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Site'
   /agencies/{agencyId}/sites/{siteId}/update:
     patch:
       summary: Update a site

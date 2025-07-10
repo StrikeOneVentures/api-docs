@@ -159,9 +159,11 @@ paths:
                 plan:
                   type: string
                   description: The new billing Plan for the site. Not required if ONLY changing Domain. You must have an active feature-matrix-capable Partner plan.
+                  example: Ultimate
                 domain:
                   type: string
                   description: The new Domain for the site. Not required if ONLY changing Plan.
+                  example: example.com
       responses:
         '200':
           description: The updated site.
@@ -273,6 +275,7 @@ components:
         plan:
           type: string
           description: The plan the site is subscribed to.
+          example: Ultimate
         is_published:
           type: boolean
           description: Whether the site is published.
@@ -286,9 +289,11 @@ components:
         domain:
           type: string
           description: The domain of the site.
+          example: example.com
         subdomain:
           type: string
           description: The subdomain of the site.
+          example: example.articulation.website
         login_url:
           type: string
           description: The login URL for the site.

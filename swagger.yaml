@@ -158,12 +158,10 @@ paths:
               properties:
                 plan:
                   type: string
-                  description: The new billing plan for the site.
-                  required: false
+                  description: The new billing Plan for the site. Not required if ONLY changing Domain. You must have an active feature-matrix-capable Partner plan.
                 domain:
                   type: string
-                  description: The new Domain for the site.
-                  required: false
+                  description: The new Domain for the site. Not required if ONLY changing Plan.
       responses:
         '200':
           description: The updated site.

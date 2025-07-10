@@ -159,6 +159,11 @@ paths:
                 plan:
                   type: string
                   description: The new billing plan for the site.
+                  required: false
+                domain:
+                  type: string
+                  description: The new Domain for the site.
+                  required: false
       responses:
         '200':
           description: The updated site.

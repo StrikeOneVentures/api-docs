@@ -127,7 +127,7 @@ paths:
                 $ref: '#/components/schemas/Site'
     delete:
       summary: Delete Site
-      description: Permanently deletes a disabled site from your account
+      description: Permanently deletes a disabled site from your account. This site MUST be disabled before calling this method.
       parameters:
         - name: agencyId
           in: path

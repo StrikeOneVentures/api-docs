@@ -171,7 +171,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Site'
-  /agencies/{agencyId}/sites/{siteId}:
     delete:
       summary: Delete Site
       description: Permanently deletes a disabled site from your account

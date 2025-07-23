@@ -131,7 +131,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Site'
-  /agencies/{agencyId}/sites/{siteId}/update:
+  /agencies/{agencyId}/sites/{siteId}:
     patch:
       summary: Update a site
       description: Updates a site's details.
@@ -171,6 +171,27 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Site'
+  /agencies/{agencyId}/sites/{siteId}:
+    delete:
+      summary: Delete Site
+      description: Permanently deletes a disabled site from your account
+      parameters:
+        - name: agencyId
+          in: path
+          required: true
+          description: ID of your Agency.
+          schema:
+            type: string
+      parameters:
+        - name: siteId
+          in: path
+          required: true
+          description: ID of the site to delete.
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Site was deleted successfully.
   /agencies/{agencyId}/sites/create:
     post:
       summary: Create a new site

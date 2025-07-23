@@ -51,38 +51,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Site'
-  /agencies/{agencyId}/sites/search:
-    get:
-      summary: Search for a site
-      description: Search for a site by domain.
-      parameters:
-        - name: agencyId
-          in: path
-          required: true
-          description: ID of your Agency.
-          schema:
-            type: string
-        - name: domain
-          in: query
-          required: true
-          description: The domain to search for.
-          schema:
-            type: string
-      responses:
-        '200':
-          description: A list of matching sites.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  search_term:
-                    type: string
-                    description: The search term used.
-                  sites:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Site'
     patch:
       summary: Update a site
       description: Updates a site's details.
@@ -141,6 +109,38 @@ paths:
       responses:
         '204':
           description: Site was deleted successfully.
+  /agencies/{agencyId}/sites/search:
+    get:
+      summary: Search for a site
+      description: Search for a site by domain.
+      parameters:
+        - name: agencyId
+          in: path
+          required: true
+          description: ID of your Agency.
+          schema:
+            type: string
+        - name: domain
+          in: query
+          required: true
+          description: The domain to search for.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of matching sites.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  search_term:
+                    type: string
+                    description: The search term used.
+                  sites:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Site'
   /agencies/{agencyId}/sites/{siteId}/disable:
     put:
       summary: Disable a site

@@ -27,6 +27,41 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Site'
+  /agencies/{agencyId}/sites/create:
+    post:
+      summary: Create a new site
+      description: Creates a new site for the agency.
+      parameters:
+        - name: agencyId
+          in: path
+          required: true
+          description: ID of your Agency.
+          schema:
+            type: string
+      requestBody:
+        description: The details of the site to create.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                domain:
+                  type: string
+                  description: The domain of the new site.
+                email:
+                  type: string
+                  description: The email address of the owner of the new site.
+                plan:
+                  type: string
+                  description: The billing plan for the new site, if applicable.
+      responses:
+        '201':
+          description: The newly created site.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Site'
   /agencies/{agencyId}/sites/{siteId}:
     get:
       summary: Get site by ID
@@ -185,41 +220,6 @@ paths:
       responses:
         '200':
           description: The enabled site.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Site'
-  /agencies/{agencyId}/sites/create:
-    post:
-      summary: Create a new site
-      description: Creates a new site for the agency.
-      parameters:
-        - name: agencyId
-          in: path
-          required: true
-          description: ID of your Agency.
-          schema:
-            type: string
-      requestBody:
-        description: The details of the site to create.
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                domain:
-                  type: string
-                  description: The domain of the new site.
-                email:
-                  type: string
-                  description: The email address of the owner of the new site.
-                plan:
-                  type: string
-                  description: The billing plan for the new site, if applicable.
-      responses:
-        '201':
-          description: The newly created site.
           content:
             application/json:
               schema:

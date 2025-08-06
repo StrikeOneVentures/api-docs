@@ -224,7 +224,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Site'
-    /agencies/{agencyId}/sites/{siteId}/publish:
+  /agencies/{agencyId}/sites/{siteId}/publish:
     put:
       summary: Publishes a site
       description: Publishes the given site.

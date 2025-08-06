@@ -224,10 +224,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Site'
-  /agencies/{agencyId}/plans:
-    get:
-      summary: View available plans
-      description: Returns a list of available plans for the agency.
+    /agencies/{agencyId}/sites/{siteId}/publish:
+    put:
+      summary: Publishes a site
+      description: Publishes the given site.
       parameters:
         - name: agencyId
           in: path
@@ -235,18 +235,43 @@ paths:
           description: ID of your Agency.
           schema:
             type: string
+        - name: siteId
+          in: path
+          required: true
+          description: ID of the site to publish.
+          schema:
+            type: string
       responses:
         '200':
-          description: A list of available plans.
+          description: The published site.
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  available_plans:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/Site'
+  /agencies/{agencyId}/sites/{siteId}/unpublish:
+    put:
+      summary: Unpublishes a site
+      description: Unpublishes the given site.
+      parameters:
+        - name: agencyId
+          in: path
+          required: true
+          description: ID of your Agency.
+          schema:
+            type: string
+        - name: siteId
+          in: path
+          required: true
+          description: ID of the site to unpublish.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The unpublished site.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Site'
   /agencies/{agencyId}/sites/{siteId}/send-login-link:
     post:
       summary: Send a login link
@@ -272,6 +297,29 @@ paths:
               schema:
                 type: array
                 items: {}
+  /agencies/{agencyId}/plans:
+    get:
+      summary: View available plans
+      description: Returns a list of available plans for the agency.
+      parameters:
+        - name: agencyId
+          in: path
+          required: true
+          description: ID of your Agency.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of available plans.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  available_plans:
+                    type: array
+                    items:
+                      type: string
 components:
   securitySchemes:
     bearerAuth:

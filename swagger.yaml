@@ -9,7 +9,7 @@ servers:
 paths:
   /agencies/{agencyId}/sites:
     get:
-      summary: List all sites
+      summary: Lists all sites
       description: Returns a list of all sites for the agency.
       parameters:
         - name: agencyId
@@ -29,8 +29,8 @@ paths:
                   $ref: '#/components/schemas/Site'
   /agencies/{agencyId}/sites/search:
     get:
-      summary: Search for a site
-      description: Search for a site by domain.
+      summary: Searches for a site
+      description: Searches for a site by domain.
       parameters:
         - name: agencyId
           in: path
@@ -61,7 +61,7 @@ paths:
                       $ref: '#/components/schemas/Site'
   /agencies/{agencyId}/sites/create:
     post:
-      summary: Create a new site
+      summary: Creates a new site
       description: Creates a new site for the agency.
       parameters:
         - name: agencyId
@@ -96,7 +96,7 @@ paths:
                 $ref: '#/components/schemas/Site'
   /agencies/{agencyId}/sites/{siteId}:
     get:
-      summary: Get site by ID
+      summary: Lists a site by ID
       description: Returns a single site by ID.
       parameters:
         - name: agencyId
@@ -119,7 +119,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Site'
     patch:
-      summary: Update a site
+      summary: Updates a site
       description: Updates a site's details.
       parameters:
         - name: agencyId
@@ -158,7 +158,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Site'
     delete:
-      summary: Delete Site
+      summary: Deletes a site
       description: Permanently deletes a disabled site from your account. This site MUST be disabled before calling this method.
       parameters:
         - name: agencyId
@@ -178,7 +178,7 @@ paths:
           description: Site was deleted successfully.
   /agencies/{agencyId}/sites/{siteId}/disable:
     put:
-      summary: Disable a site
+      summary: Disables a site
       description: Disables a site by ID.
       parameters:
         - name: agencyId
@@ -274,7 +274,7 @@ paths:
                 $ref: '#/components/schemas/Site'
   /agencies/{agencyId}/sites/{siteId}/send-login-link:
     post:
-      summary: Send a login link
+      summary: Sends a login link
       description: Sends a login link to the site's email address.
       parameters:
         - name: agencyId
@@ -299,7 +299,7 @@ paths:
                 items: {}
   /agencies/{agencyId}/plans:
     get:
-      summary: View available plans
+      summary: Lists available plans
       description: Returns a list of available plans for the agency.
       parameters:
         - name: agencyId

@@ -363,6 +363,12 @@ components:
         login_url:
           type: string
           description: The login URL for the site.
+        domain_redirects:
+          type: array
+          description: Optional list of domains that redirect to this site.
+          items:
+            type: string
+            description: Domain that redirects to the site.
     Agency:
       type: object
       properties:

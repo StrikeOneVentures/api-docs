@@ -144,12 +144,15 @@ paths:
               properties:
                 plan:
                   type: string
-                  description: The new billing Plan for the site. Not required if ONLY changing Domain. You must have an active feature-matrix-capable Partner plan.
+                  description: The new billing Plan for the site. Not required if ONLY changing/releasing Domain. You must have an active feature-matrix-capable Partner plan.
                   example: Ultimate
                 domain:
                   type: string
-                  description: The new Domain for the site. Not required if ONLY changing Plan.
+                  description: The new Domain for the site. Not required if ONLY changing Plan, or releasing a domain.
                   example: example.com
+                release_domain:
+                  type: boolean
+                  description: Releases the current Domain and unpublishes the site. Not required if either case above applies.
       responses:
         '200':
           description: The updated site.

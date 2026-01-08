@@ -87,6 +87,9 @@ paths:
                 plan:
                   type: string
                   description: The billing plan for the new site, if applicable.
+                convert_from_weebly:
+                  type: boolean
+                  description: If true, we'll attempt to convert the given domain's site from a currently published Weebly site.
       responses:
         '201':
           description: The newly created site.

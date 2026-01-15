@@ -155,7 +155,7 @@ paths:
                   example: example.com
                 release_domain:
                   type: boolean
-                  descrption: Releases the current Domain and unpublishes the site. Not required if either case above applies.
+                  description: Releases the current Domain and unpublishes the site. Not required if either case above applies.
                 domain_redirect:
                   type: string
                   description: Adds a new Domain redirect for the site.
